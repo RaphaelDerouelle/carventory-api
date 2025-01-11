@@ -1,0 +1,14 @@
+version: '3.8'  # or the latest version
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: carventory-postgres
+    environment:
+      POSTGRES_USER: carventory_user
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: carventory_db  
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
