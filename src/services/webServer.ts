@@ -1,10 +1,8 @@
 import { Express } from "express";
 import * as dotenv from "dotenv";
-
 import logger from "../utils/logger";
-import itemsRouter from "../routes/items";
-import authRouter from "../routes/auth";
-import protectedRouter from "../routes/protected";
+import UserRouter from "@/routes/user";
+import VehiculeRouter from "@/routes/vehicule";
 
 export function startWebServer(): void {
     const app: Express = require("express")();
@@ -24,9 +22,8 @@ export function startWebServer(): void {
     };
     app.use(cors(corsOptions)); 
 
-    app.use("/api", itemsRouter);
-    app.use("/api/auth", authRouter);
-    app.use("/api", protectedRouter);
+    app.use("/api", VehiculeRouter)
+    app.use("/api", UserRouter)
 
 
     app.listen(PORT, () => {

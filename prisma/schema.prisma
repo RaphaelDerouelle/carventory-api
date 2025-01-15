@@ -34,7 +34,7 @@ model Company {
 
 model Vehicule {
   id                String     @id @default(uuid())  // UUID primary key
-  private           Boolean    @default(false)
+  privateVehicule   Boolean    @default(false)
   plate             String?    @unique
   name              String
   brand             String?
